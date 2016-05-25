@@ -1,0 +1,9 @@
+SortedMap<Asignatura, Calificacion> getCalificacionPorAsignatura(){
+	return getExpediente().getNotas().stream()
+			.collect(Collectors.toMap(	n->n.getAsignatura(),
+										n->n.getCalificacion(),
+										(c1,c2) -> c1.compareTo(c2)>0?c1:c2;
+										TreeMap::new
+										)
+					);
+}
